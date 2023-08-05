@@ -1,0 +1,18 @@
+body{
+    background: url("https://images.unsplash.com/photo-1691064058419-0d1df7a7b9cf?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxlZGl0b3JpYWwtZmVlZHwzNXx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=600&q=60");
+    background-repeat: no-repeat;
+    background-size: 100%;
+    background-position: fixed;
+}
+div{
+    background: url("./op.jpg");
+    background-repeat: no-repeat;
+    background-position: top right;
+    height: 200px;
+}
+h1{
+    color: blue;
+    text-align: center;
+    text-decoration: underline;
+    text-transform: uppercase;
+}
