@@ -1,0 +1,51 @@
+.ob{
+    border: 1px solid black;
+    width: 150px;
+    height: 150px;
+}
+#fb{
+    position: absolute;
+    background-color: rgb(27, 193, 27);
+    z-index: 100;
+}
+#sb{
+    background-color: rgb(234, 227, 18);
+    position: absolute;
+    z-index: 0;
+    margin-top: 75px;
+    margin-left: 75px;
+}
+#tb{
+    background-color: rgb(18, 234, 230);
+    position: absolute;
+    z-index: 5;
+    margin-top: 150px;
+    margin-left: 150px;
+}
+#fob{
+    background-color: rgb(234, 18, 90);
+    position: absolute;
+    z-index: 5;
+    margin-top: 225px;
+    margin-left: 225px;
+}
+#fib{
+    background-color: rgb(234, 18, 18);
+    position: absolute;
+    z-index: 1;
+    margin-top: 150px;
+    margin-left: 325px;
+}
+#sib{
+    background-color: rgb(82, 2, 210);
+    position: absolute;
+    z-index: 0;
+    margin-top: 75px;
+    margin-left: 400px;
+}
+#seb{
+    background-color: rgb(210, 2, 189);
+    position: absolute;
+    z-index: 3;
+    margin-left: 475px;
+}
