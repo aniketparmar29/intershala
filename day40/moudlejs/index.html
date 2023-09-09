@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simple Calculator</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<body>
+    <div class="container mt-5">
+        <h3 class="text-center">js Calculator</h3>
+        <form id="calculator-form">
+            <div class="form-group">
+                <input type="number" class="form-control" id="operand1" placeholder="Enter number">
+            </div>
+            <div class="form-group">
+                <select class="form-control" id="operator">
+                    <option value="+">+</option>
+                    <option value="-">-</option>
+                    <option value="*">*</option>
+                    <option value="/">/</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <input type="number" class="form-control" id="operand2" placeholder="Enter number">
+            </div>
+            <div class="form-group">
+                <button type="button" class="btn btn-primary btn-block" onclick="calculate()">Calculate</button>
+            </div>
+            <div class="form-group">
+                <input type="text" class="form-control" id="result" placeholder="Result" readonly>
+            </div>
+        </form>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.3/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+    <script>
+        function calculate() {
+            const operand1 = parseFloat(document.getElementById("operand1").value);
+            const operand2 = parseFloat(document.getElementById("operand2").value);
+            const operator = document.getElementById("operator").value;
+
+            if (!isNaN(operand1) && !isNaN(operand2)) {
+                let result;
+                switch (operator) {
+                    case "+":
+                        result = operand1 + operand2;
+                        break;
+                    case "-":
+                        result = operand1 - operand2;
+                        break;
+                    case "*":
+                        result = operand1 * operand2;
+                        break;
+                    case "/":
+                        if (operand2 !== 0) {
+                            result = operand1 / operand2;
+                        } else {
+                            alert("Division by zero is not allowed.");
+                            return;
+                        }
+                        break;
+                    default:
+                        alert("Invalid operator.");
+                        return;
+                }
+
+                document.getElementById("result").value = result;
+            } else {
+                alert("Please enter valid numbers.");
+            }
+        }
+    </script>
+</body>
+</html>
