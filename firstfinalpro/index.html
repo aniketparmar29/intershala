@@ -6,6 +6,12 @@
     <title>Your Website</title>
     <!-- Link to Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans|Varela+Round">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
     <!-- Link to Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/fontawesome.min.css">
     <style>
@@ -51,6 +57,106 @@
                 width: 100%;
             }
         }
+        .carousel {
+                margin: 30px auto 60px;
+                padding: 30px 160px;
+            }
+            .carousel .carousel-item {
+                text-align: center;
+                overflow: hidden;
+            }
+            .carousel .carousel-item h4 {
+                font-family: 'Varela Round', sans-serif;
+            }
+            .carousel .carousel-item img {
+                max-width: 100%;
+                display: inline-block;
+            }
+            .carousel .carousel-item .btn {
+                border-radius: 0;
+                font-size: 12px;
+                text-transform: uppercase;
+                font-weight: bold;
+                border: none;
+                background: #a177ff;
+                padding: 6px 15px;
+                margin-top: 5px;
+            }
+            .carousel .carousel-item .btn:hover {
+                background: #8c5bff;
+            }
+            .carousel .carousel-item .btn i {
+                font-size: 14px;
+                font-weight: bold;
+                margin-left: 5px;
+            }
+            .carousel .thumb-wrapper {
+                margin: 5px;
+                text-align: left;
+                background: #fff;
+                box-shadow: 0px 2px 2px rgba(0,0,0,0.1);   
+            }
+            .carousel .thumb-content {
+                padding: 15px;
+                font-size: 13px;
+            }
+            .carousel-control-prev, .carousel-control-next {
+                height: 44px;
+                width: 44px;
+                background: none;	
+                margin: auto 0;
+                border-radius: 50%;
+                border: 3px solid rgba(0, 0, 0, 0.8);
+            }
+            .carousel-control-prev i, .carousel-control-next i {
+                font-size: 36px;
+                position: absolute;
+                top: 50%;
+                display: inline-block;
+                margin: -19px 0 0 0;
+                z-index: 5;
+                left: 0;
+                right: 0;
+                color: rgba(0, 0, 0, 0.8);
+                text-shadow: none;
+                font-weight: bold;
+            }
+            .carousel-control-prev i {
+                margin-left: -3px;
+            }
+            .carousel-control-next i {
+                margin-right: -3px;
+            }
+            .carousel-indicators {
+                bottom: -50px;
+            }
+            .carousel-indicators li, .carousel-indicators li.active {
+                width: 10px;
+                height: 10px;
+                border-radius: 50%;
+                margin: 4px;
+                border: none;
+            }
+            .carousel-indicators li {	
+                background: #ababab;
+            }
+            .carousel-indicators li.active {	
+                background: #555;
+            }
+            .contact-container {
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            margin-top: 20px;
+            }
+            .contact-image {
+                text-align: center;
+            }
+            .contact-image img {
+                max-width: 100%;
+                height: auto;
+            }
     </style>
 </head>
 <body>
@@ -67,10 +173,10 @@
                 </form>
                 <ul class="navbar-nav ml-auto">
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Login</a>
+                        <a class="nav-link" href="./login.html">Login</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">
+                        <a class="nav-link" href="./cart.html">
                             <i class="cart fa fa-shopping-cart fa-lg text-primary"></i>
                         </a>
                     </li>
@@ -137,106 +243,217 @@
         </div>
     </section>
 
-    <section class="featured-carousel">
-        <div class="container">
-            <div id="carouselExample" class="carousel slide" data-ride="carousel">
+    <div class="container-xl">
+        <div class="row">
+            <div class="col-md-10 mx-auto">
+                <div id="myCarousel" class="carousel slide" data-ride="carousel" data-interval="0">
+                <!-- Carousel indicators -->
+                <ol class="carousel-indicators">
+                    <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+                    <li data-target="#myCarousel" data-slide-to="1"></li>
+                    <li data-target="#myCarousel" data-slide-to="2"></li>
+                </ol>   
+                <!-- Wrapper for carousel items -->
                 <div class="carousel-inner">
-                    <!-- Slide 1 (Active) -->
                     <div class="carousel-item active">
-                        <div class="card">
-                            <img src="https://your-image-url.com/product1.jpg" class="card-img-top" alt="Product 1">
-                            <div class="card-body">
-                                <h5 class="card-title">Product 1</h5>
-                                <p class="card-text">$49.99</p>
+                        <div class="row">
+                            <div class="col-sm-2">
+                                <div class="thumb-wrapper">
+                                    <div class="img-box">
+                                        <img src="/examples/images/cities/london.png" class="img-fluid" alt="">
+                                    </div>
+                                    <div class="thumb-content">
+                                        <h4>London</h4>
+                                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam eu sem tempor, varius quam.</p>
+                                        <a href="#" class="btn btn-primary">More <i class="fa fa-angle-right"></i></a>
+                                    </div>						
+                                </div>
+                            </div>
+                            <div class="col-sm-2">
+                                <div class="thumb-wrapper">
+                                    <div class="img-box">
+                                        <img src="/examples/images/cities/new-york.png" class="img-fluid" alt="">
+                                    </div>
+                                    <div class="thumb-content">
+                                        <h4>New York</h4>
+                                        <p>Vivamus fermentum in arcu in aliquam. Quisque aliqua porta odio in fringilla vivamus.</p>
+                                        <a href="#" class="btn btn-primary">More <i class="fa fa-angle-right"></i></a>
+                                    </div>						
+                                </div>
+                            </div>				
+                            <div class="col-sm-2">
+                                <div class="thumb-wrapper">
+                                    <div class="img-box">
+                                        <img src="/examples/images/cities/paris.png" class="img-fluid" alt="">
+                                    </div>
+                                    <div class="thumb-content">
+                                        <h4>Paris</h4>
+                                        <p>Convallis eget pretium eu, bibendum non leo. Proin susc ipit purus adipiscing dolor.</p>
+                                        <a href="#" class="btn btn-primary">More <i class="fa fa-angle-right"></i></a>
+                                    </div>						
+                                </div>					
+                            </div>
+                            <div class="col-sm-2">
+                                <div class="thumb-wrapper">
+                                    <div class="img-box">
+                                        <img src="/examples/images/cities/london.png" class="img-fluid" alt="">
+                                    </div>
+                                    <div class="thumb-content">
+                                        <h4>London</h4>
+                                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam eu sem tempor, varius quam.</p>
+                                        <a href="#" class="btn btn-primary">More <i class="fa fa-angle-right"></i></a>
+                                    </div>						
+                                </div>
+                            </div>
+                            <div class="col-sm-2">
+                                <div class="thumb-wrapper">
+                                    <div class="img-box">
+                                        <img src="/examples/images/cities/new-york.png" class="img-fluid" alt="">
+                                    </div>
+                                    <div class="thumb-content">
+                                        <h4>New York</h4>
+                                        <p>Vivamus fermentum in arcu in aliquam. Quisque aliqua porta odio in fringilla vivamus.</p>
+                                        <a href="#" class="btn btn-primary">More <i class="fa fa-angle-right"></i></a>
+                                    </div>						
+                                </div>
+                            </div>				
+                            <div class="col-sm-2">
+                                <div class="thumb-wrapper">
+                                    <div class="img-box">
+                                        <img src="/examples/images/cities/paris.png" class="img-fluid" alt="">
+                                    </div>
+                                    <div class="thumb-content">
+                                        <h4>Paris</h4>
+                                        <p>Convallis eget pretium eu, bibendum non leo. Proin susc ipit purus adipiscing dolor.</p>
+                                        <a href="#" class="btn btn-primary">More <i class="fa fa-angle-right"></i></a>
+                                    </div>						
+                                </div>					
                             </div>
                         </div>
-                        <!-- Add more cards here for slide 1 -->
                     </div>
-                    
-                    <!-- Slide 2 -->
                     <div class="carousel-item">
-                        <div class="card">
-                            <img src="https://your-image-url.com/product2.jpg" class="card-img-top" alt="Product 2">
-                            <div class="card-body">
-                                <h5 class="card-title">Product 2</h5>
-                                <p class="card-text">$59.99</p>
+                        <div class="row">
+                            <div class="col-sm-4">
+                                <div class="thumb-wrapper">
+                                    <div class="img-box">
+                                        <img src="/examples/images/cities/kuala-lumpur.png" class="img-fluid" alt="">
+                                    </div>
+                                    <div class="thumb-content">
+                                        <h4>Kuala Lumpur</h4>
+                                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam eu sem tempor, varius quam.</p>
+                                        <a href="#" class="btn btn-primary">More <i class="fa fa-angle-right"></i></a>
+                                    </div>						
+                                </div>
+                            </div>
+                            <div class="col-sm-4">
+                                <div class="thumb-wrapper">
+                                    <div class="img-box">
+                                        <img src="/examples/images/cities/agra.png" class="img-fluid" alt="">
+                                    </div>
+                                    <div class="thumb-content">
+                                        <h4>Agra</h4>
+                                        <p>Vivamus fermentum in arcu in aliquam. Quisque aliqua porta odio in fringilla vivamus.</p>
+                                        <a href="#" class="btn btn-primary">More <i class="fa fa-angle-right"></i></a>
+                                    </div>						
+                                </div>
+                            </div>
+                            <div class="col-sm-4">
+                                <div class="thumb-wrapper">
+                                    <div class="img-box">
+                                        <img src="/examples/images/cities/dubai.png" class="img-fluid" alt="">
+                                    </div>
+                                    <div class="thumb-content">
+                                        <h4>Dubai</h4>
+                                        <p>Convallis eget pretium eu, bibendum non leo. Proin susc ipit purus adipiscing dolor.</p>
+                                        <a href="#" class="btn btn-primary">More <i class="fa fa-angle-right"></i></a>
+                                    </div>						
+                                </div>					
                             </div>
                         </div>
-                        <!-- Add more cards here for slide 2 -->
-                    </div>
-
-                    <!-- Slide 3 -->
-                    <div class="carousel-item">
-                        <div class="card">
-                            <img src="https://your-image-url.com/product3.jpg" class="card-img-top" alt="Product 3">
-                            <div class="card-body">
-                                <h5 class="card-title">Product 3</h5>
-                                <p class="card-text">$39.99</p>
-                            </div>
-                        </div>
-                        <!-- Add more cards here for slide 3 -->
-                    </div>
-
-                    <!-- Slide 4 -->
-                    <div class="carousel-item">
-                        <div class="card">
-                            <img src="https://your-image-url.com/product4.jpg" class="card-img-top" alt="Product 4">
-                            <div class="card-body">
-                                <h5 class="card-title">Product 4</h5>
-                                <p class="card-text">$69.99</p>
-                            </div>
-                        </div>
-                        <!-- Add more cards here for slide 4 -->
-                    </div>
-
-                    <!-- Slide 5 -->
-                    <div class="carousel-item">
-                        <div class="card">
-                            <img src="https://your-image-url.com/product5.jpg" class="card-img-top" alt="Product 5">
-                            <div class="card-body">
-                                <h5 class="card-title">Product 5</h5>
-                                <p class="card-text">$79.99</p>
-                            </div>
-                        </div>
-                        <!-- Add more cards here for slide 5 -->
                     </div>
                     <div class="carousel-item">
-                        <div class="card">
-                            <img src="https://your-image-url.com/product5.jpg" class="card-img-top" alt="Product 5">
-                            <div class="card-body">
-                                <h5 class="card-title">Product 6</h5>
-                                <p class="card-text">$79.99</p>
+                        <div class="row">
+                            <div class="col-sm-4">
+                                <div class="thumb-wrapper">
+                                    <div class="img-box">
+                                        <img src="/examples/images/cities/rio-de-janeiro.png" class="img-fluid" alt="">
+                                    </div>
+                                    <div class="thumb-content">
+                                        <h4>Rio De Janeiro</h4>
+                                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam eu sem tempor, varius quam.</p>
+                                        <a href="#" class="btn btn-primary">More <i class="fa fa-angle-right"></i></a>
+                                    </div>						
+                                </div>
+                            </div>
+                            <div class="col-sm-4">
+                                <div class="thumb-wrapper">
+                                    <div class="img-box">
+                                        <img src="/examples/images/cities/giza.png" class="img-fluid" alt="">
+                                    </div>
+                                    <div class="thumb-content">
+                                        <h4>Giza</h4>
+                                        <p>Vivamus fermentum in arcu in aliquam. Quisque aliqua porta odio in fringilla vivamus.</p>
+                                        <a href="#" class="btn btn-primary">More <i class="fa fa-angle-right"></i></a>
+                                    </div>						
+                                </div>
+                            </div>
+                            <div class="col-sm-4">
+                                <div class="thumb-wrapper">
+                                    <div class="img-box">
+                                        <img src="/examples/images/cities/sydney.png" class="img-fluid" alt="">
+                                    </div>
+                                    <div class="thumb-content">
+                                        <h4>Sydney</h4>
+                                        <p>Convallis eget pretium eu, bibendum non leo. Proin susc ipit purus adipiscing dolor.</p>
+                                        <a href="#" class="btn btn-primary">More <i class="fa fa-angle-right"></i></a>
+                                    </div>						
+                                </div>					
                             </div>
                         </div>
-                        <!-- Add more cards here for slide 5 -->
                     </div>
-                    <div class="carousel-item">
-                        <div class="card">
-                            <img src="https://your-image-url.com/product5.jpg" class="card-img-top" alt="Product 5">
-                            <div class="card-body">
-                                <h5 class="card-title">Product 7</h5>
-                                <p class="card-text">$79.99</p>
-                            </div>
-                        </div>
-                        <!-- Add more cards here for slide 5 -->
-                    </div>
-
-                    <!-- Add more slides as needed -->
-
                 </div>
-                <!-- Carousel Controls -->
-                <a class="carousel-control-prev" href="#carouselExample" role="button" data-slide="prev">
-                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                    <span class="sr-only">Previous</span>
+                <!-- Carousel controls -->
+                <a class="carousel-control-prev" href="#myCarousel" data-slide="prev">
+                    <i class="fa fa-angle-left"></i>
                 </a>
-                <a class="carousel-control-next" href="#carouselExample" role="button" data-slide="next">
-                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                    <span class="sr-only">Next</span>
+                <a class="carousel-control-next" href="#myCarousel" data-slide="next">
+                    <i class="fa fa-angle-right"></i>
                 </a>
             </div>
+            </div>
         </div>
-    </section>
-
+    </div>
+    <div class="container">
+        <div class="row justify-content-center">
+            <!-- Column for the contact image -->
+            <div class="col-md-6">
+                <div class="contact-image">
+                    <img src="https://images.unsplash.com/photo-1696023169341-294108cf3bdc?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxlZGl0b3JpYWwtZmVlZHwxMTJ8fHxlbnwwfHx8fHw%3D&auto=format&fit=crop&w=500&q=60" alt="Business Image">
+                </div>
+            </div>
+            <!-- Column for the contact form -->
+            <div class="col-md-6">
+                <div class="contact-container">
+                    <h2>Contact Us</h2>
+                    <form>
+                        <div class="form-group">
+                            <label for="name">Your Name</label>
+                            <input type="text" class="form-control" id="name" placeholder="Your Name">
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Email Address</label>
+                            <input type="email" class="form-control" id="email" placeholder="Email Address">
+                        </div>
+                        <div class="form-group">
+                            <label for="message">Message</label>
+                            <textarea class="form-control" id="message" rows="5" placeholder="Your Message"></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-primary">Send Message</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
     <div id="footer"></div>
 
     

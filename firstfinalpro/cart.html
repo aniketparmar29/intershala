@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cart Page</title>
+    <!-- Link to Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <!-- Link to Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <!-- Custom CSS -->
+    <style>
+        /* Add custom CSS styles here */
+        body {
+            background-color: #f7f7f7;
+        }
+        .cart-container {
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="row">
+            <!-- Cart Items -->
+            <div class="col-md-8">
+                <h2>Your Cart</h2>
+                <div class="cart-container">
+                    <!-- Cart Item 1 -->
+                    <div class="row cart-item">
+                        <div class="col-md-3">
+                            <img src="product1.jpg" alt="Product Image" class="img-fluid">
+                        </div>
+                        <div class="col-md-6">
+                            <h4>Product Name</h4>
+                            <p>Price: $10.00</p>
+                        </div>
+                        <div class="col-md-3">
+                            <form class="quantity-form">
+                                <button class="btn btn-link quantity-button"><i class="fa fa-minus"></i></button>
+                                <input type="text" class="form-control quantity-input" value="1">
+                                <button class="btn btn-link quantity-button"><i class="fa fa-plus"></i></button>
+                            </form>
+                            <button class="btn btn-link remove-button"><i class="fa fa-trash"></i></button>
+                        </div>
+                    </div>
+                    <!-- Cart Item 2 (you can add more items similarly) -->
+                </div>
+            </div>
+            <!-- Cart Summary -->
+            <div class="col-md-4">
+                <h2>Summary</h2>
+                <div class="cart-container">
+                    <div class="card">
+                        <div class="card-header">Summary</div>
+                        <div class="card-body">
+                            <p>Product Price (Total): $20.00</p>
+                            <p>Shipping: $5.00</p>
+                            <hr>
+                            <p>Total Cost: $25.00</p>
+                            <a href="#" class="btn btn-primary btn-block">Checkout</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Include Bootstrap JS and jQuery -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.3/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+    <!-- Custom JavaScript for quantity buttons -->
+    <script>
+        const quantityInputs = document.querySelectorAll('.quantity-input');
+        const quantityButtons = document.querySelectorAll('.quantity-button');
+
+        quantityButtons.forEach((button, index) => {
+            button.addEventListener('click', (e) => {
+                e.preventDefault();
+                const input = quantityInputs[index];
+                let value = parseInt(input.value);
+                if (button.classList.contains('fa-minus')) {
+                    value = value > 1 ? value - 1 : 1;
+                } else if (button.classList.contains('fa-plus'))
+                {
+                    value += 1;
+                }
+                input.value = value;
+            });
+        });
+    </script>
+</body>
+</html>
