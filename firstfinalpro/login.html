@@ -6,6 +6,8 @@
     <title>Login Page</title>
     <!-- Link to Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+
     <!-- Custom CSS -->
     <style>
         /* Add custom CSS styles here */
@@ -23,6 +25,81 @@
     </style>
 </head>
 <body>
+    <header>
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+            <div class="container">
+                 <a class="navbar-brand" href="./index.html">
+          <h3 style="color: rgb(238, 238, 67);font: italic;font-weight: 500;">ECommerce</h3>
+  </a>
+                <form class="form-inline mx-auto">
+                    <input class="form-control mr-2" type="search" placeholder="Search" aria-label="Search">
+                    <button class="btn btn-outline-primary" type="submit">Search</button>
+                </form>
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="./login.html">Login</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="./cart.html">
+                            <i class="cart fa fa-shopping-cart fa-lg text-primary"></i>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Part 2: Navigation Bar -->
+    
+<nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+    <div class="container">
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+            aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav">
+                <li class="nav-item active">
+                    <a class="nav-link" href="./index.html">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="./AllProduct.html">All Products</a>
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="womenDropdown" role="button" data-toggle="dropdown"
+                        aria-haspopup="true" aria-expanded="false">
+                        Women
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="womenDropdown" id="womenBrands">
+                        <!-- Brands for Women will be populated here -->
+                    </div>
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="menDropdown" role="button" data-toggle="dropdown"
+                        aria-haspopup="true" aria-expanded="false">
+                        Men
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="menDropdown" id="menBrands">
+                        <!-- Brands for Men will be populated here -->
+                    </div>
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="kidsDropdown" role="button" data-toggle="dropdown"
+                        aria-haspopup="true" aria-expanded="false">
+                        Kids
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="kidsDropdown" id="kidsBrands">
+                        <!-- Brands for Kids will be populated here -->
+                    </div>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="./Contact.html">Contact</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
     <div class="container">
         <div class="row justify-content-center">
             <div class="col-md-6">
@@ -43,6 +120,9 @@
             </div>
         </div>
     </div>
+    <div id="footer"></div>
+
+    
 
     <!-- Include Bootstrap JS and jQuery -->
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
@@ -51,6 +131,80 @@
 
     <script>
         // JavaScript for handling form submission and validation
+          // Footer HTML
+          var footerHTML = `
+        <footer class="bg-light py-4">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-3">
+                        <h5>Women</h5>
+                        <ul class="list-unstyled">
+                            <li><a href="#">All Products</a></li>
+                            <li><a href="#">Dresses</a></li>
+                            <li><a href="#">Pants</a></li>
+                            <li><a href="#">Skirts</a></li>
+                        </ul>
+                    </div>
+                    <div class="col-md-3">
+                        <h5>Men</h5>
+                        <ul class="list-unstyled">
+                            <li><a href="#">All Products</a></li>
+                            <li><a href="#">Shirts</a></li>
+                            <li><a href="#">Pants</a></li>
+                            <li><a href="#">Hoodies</a></li>
+                        </ul>
+                    </div>
+                    <div class="col-md-3">
+                        <h5>Kids</h5>
+                        <ul class="list-unstyled">
+                            <li><a href="#">All Products</a></li>
+                        </ul>
+                    </div>
+                    <div class="col-md-3">
+                        <h5>Links</h5>
+                        <ul class="list-unstyled">
+                            <li><a href="#">Home</a></li>
+                            <li><a href="#">Contact</a></li>
+                            <li><a href="#">Login</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <hr>
+                <p class="text-center">&copy; ${new Date().getFullYear()} Your Website. All Rights Reserved.</p>
+            </div>
+        </footer>
+        `;
+        function populateSubmenuWithBrands(category, submenuId) {
+        // Replace this with your API fetch logic
+        fetch('https://ajio-mock-server.vercel.app/clothing')
+            .then(response => response.json())
+            .then(data => {
+                const uniqueBrands = new Set();
+                data.forEach(item => {
+                    if (item.category === category) {
+                        uniqueBrands.add(item.brand);
+                    }
+                });
+                // Convert the set to an array
+                const uniqueBrandsArray = Array.from(uniqueBrands);
+                const submenu = document.getElementById(submenuId);
+                uniqueBrandsArray.forEach(brand => {
+                    const brandItem = document.createElement('a');
+                    brandItem.classList.add('dropdown-item');
+                    brandItem.href = 'brand.html?brand=' + encodeURIComponent(brand);
+                    brandItem.textContent = brand;
+                    submenu.appendChild(brandItem);
+                });
+            })
+            .catch(error => console.error(error));
+    }
+
+    // Call the function to populate the submenus with brands
+    populateSubmenuWithBrands("Womens", "womenBrands");
+    populateSubmenuWithBrands("Mens", "menBrands");
+    populateSubmenuWithBrands("Kids", "kidsBrands");
+        // Inject the footer HTML
+        document.getElementById('footer').innerHTML = footerHTML;
         document.getElementById('loginForm').addEventListener('submit', function (event) {
             event.preventDefault(); // Prevent form submission
 

@@ -3,32 +3,18 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Contact Us</title>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans|Varela+Round">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <title>Brand Page</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
-    <style>
-        /* Add custom CSS styles here */
-        body {
-            background-color: #f7f7f7;
-        }
-        .cart-container {
-            background-color: #fff;
-            border-radius: 8px;
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-            padding: 20px;
-            margin-top: 20px;
-        }
-    </style>
-    <body>
+
+</head>
+<body>
     <header>
         <nav class="navbar navbar-expand-lg navbar-light bg-light">
             <div class="container">
-                <a class="navbar-brand" href="./index.html">
-                    <h3 style="color: rgb(238, 238, 67);font: italic;font-weight: 500;">ECommerce</h3>
-                </a>
+                 <a class="navbar-brand" href="./index.html">
+          <h3 style="color: rgb(238, 238, 67);font: italic;font-weight: 500;">ECommerce</h3>
+  </a>
                 <form class="form-inline mx-auto">
                     <input class="form-control mr-2" type="search" placeholder="Search" aria-label="Search">
                     <button class="btn btn-outline-primary" type="submit">Search</button>
@@ -97,59 +83,44 @@
         </div>
     </div>
 </nav>
-<div class="container">
-    <div class="row">
-        <!-- Cart Items -->
-        <div class="col-md-8">
-            <h2>Your Cart</h2>
-            <div class="cart-container">
-                <!-- Cart Item 1 -->
-                <div class="row cart-item">
-                    <div class="col-md-3">
-                        <img src="https://images.unsplash.com/photo-1558171813-4c088753af8f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8OHx8Y2xvdGhzfGVufDB8fDB8fHww&auto=format&fit=crop&w=500&q=60" alt="Product Image" class="img-fluid">
-                    </div>
-                    <div class="col-md-6">
-                        <h4>Product Name</h4>
-                        <p>Price: $10.00</p>
-                    </div>
-                    <div class="col-md-3">
-                        <form class="quantity-form">
-                            <button class="btn btn-link quantity-button minus"><i class="fa fa-minus"></i></button>
-                            <input type="text" class="form-control quantity-input" value="1">
-                            <button class="btn btn-link quantity-button plus"><i class="fa fa-plus"></i></button>
-                        </form>
-                        <button class="btn btn-link remove-button"><i class="fa fa-trash"></i></button>
-                    </div>
-                </div>
-                <!-- Cart Item 2 (you can add more items similarly) -->
-            </div>
-        </div>
-        <!-- Cart Summary -->
-        <div class="col-md-4">
-            <h2>Summary</h2>
-            <div class="cart-container">
-                <div class="card">
-                    <div class="card-header">Summary</div>
-                    <div class="card-body">
-                        <p>Product Price (Total): $20.00</p>
-                        <p>Shipping: $5.00</p>
-                        <hr>
-                        <p>Total Cost: $25.00</p>
-                        <a href="#" class="btn btn-primary btn-block">Checkout</a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
 
-    <div id="footer"></div>
+<div class="container mt-4">
+    <h1>Brand Page</h1>
+
+    <!-- Display brand name from URL parameter -->
+    <h2>Brand: <span id="brandName"></span></h2>
 
     
+<!-- Loading indicator -->
+<div id="loader" class="text-center">
+    <div class="spinner-border" role="status">
+        <span class="sr-only">Loading...</span>
+    </div>
+</div>
+    <!-- Cards for displaying data -->
 
-    <script>
-        // Footer HTML
-        var footerHTML = `
+<div class="row" id="brandData" >
+    <!-- Bootstrap cards will be added here -->
+</div>
+
+
+    <!-- Pagination -->
+    <nav aria-label="Page navigation">
+        <ul class="pagination" id="pagination">
+            <!-- Pagination links will be added here -->
+        </ul>
+    </nav>
+</div>
+<div id="footer"></div>
+
+<!-- Include Bootstrap and jQuery scripts -->
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.3/dist/umd/popper.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+<script>
+      // Footer HTML
+      var footerHTML = `
         <footer class="bg-light py-4">
             <div class="container">
                 <div class="row">
@@ -191,44 +162,6 @@
             </div>
         </footer>
         `;
-        document.addEventListener('DOMContentLoaded', function () {
-        const quantityInputs = document.querySelectorAll('.quantity-input');
-        const quantityButtonsMinus = document.querySelectorAll('.minus');
-        const quantityButtonsPlus = document.querySelectorAll('.plus');
-
-        quantityButtonsMinus.forEach((button, index) => {
-            button.addEventListener('click', (e) => {
-                e.preventDefault();
-                const input = quantityInputs[index];
-                let value = parseInt(input.value);
-                if (!isNaN(value) && value > 1) {
-                    value -= 1;
-                } else {
-                    value = 1;
-                }
-                input.value = value;
-            });
-        });
-
-        quantityButtonsPlus.forEach((button, index) => {
-            button.addEventListener('click', (e) => {
-                e.preventDefault();
-                const input = quantityInputs[index];
-                let value = parseInt(input.value);
-                if (!isNaN(value)) {
-                    value += 1;
-                } else {
-                    value = 1;
-                }
-                input.value = value;
-            });
-        });
-    });
-
-        // Inject the footer HTML
-        document.getElementById('footer').innerHTML = footerHTML;
-
-
         function populateSubmenuWithBrands(category, submenuId) {
         // Replace this with your API fetch logic
         fetch('https://ajio-mock-server.vercel.app/clothing')
@@ -258,10 +191,64 @@
     populateSubmenuWithBrands("Womens", "womenBrands");
     populateSubmenuWithBrands("Mens", "menBrands");
     populateSubmenuWithBrands("Kids", "kidsBrands");
-        </script>
-        <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-        <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.3/dist/umd/popper.min.js"></script>
-        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-        
+        // Inject the footer HTML
+        document.getElementById('footer').innerHTML = footerHTML;
+    // Function to parse brand name from URL parameter
+    function getBrandFromURL() {
+        const urlParams = new URLSearchParams(window.location.search);
+        return urlParams.get('brand');
+    }
+
+   // Function to fetch and display data for the specified brand
+function displayBrandData(brandName) {
+    // Show loading indicator
+    document.getElementById('loader').style.display = 'block';
+
+    // Replace this with your API fetch logic
+    fetch('https://ajio-mock-server.vercel.app/clothing')
+        .then(response => response.json())
+        .then(data => {
+            // Filter data for the specified brand
+            const brandData = data.filter(item => item.brand === brandName);
+
+            // Display brand name
+            document.getElementById('brandName').textContent = brandName;
+
+            // Display data in Bootstrap cards (customize as needed)
+            const brandDataContainer = document.getElementById('brandData');
+            brandDataContainer.innerHTML = '';
+            brandData.forEach(item => {
+                if(item.image!==null){
+                    const card = document.createElement('div');
+                    card.classList.add('col-md-2', 'mb-4');
+                    card.innerHTML = `
+                        <div class="card">
+                            <img src="${item.image}" class="card-img-top" alt="${item.title}">
+                            <div class="card-body">
+                                <h5 class="card-title">${item.title}</h5>
+                                ${item.price === null ? `<p class="card-text">₹${item.offer_price}</p>` : `<p class="card-text">${item.price}</p>`}
+                                ${item.discount ? `<p class="card-text">Discount: ${item.discount}</p>` : ''}
+                                <button class="btn btn-primary">Add to Cart</button>
+                            </div>
+                        </div>
+                    `;
+                    brandDataContainer.appendChild(card);
+                }
+            });
+
+            // Hide loading indicator and show data
+            document.getElementById('loader').style.display = 'none';
+            
+        })
+        .catch(error => console.error(error));
+}
+
+    // Initialize the page with brand data
+    const brandName = getBrandFromURL();
+    if (brandName) {
+        displayBrandData(brandName);
+    }
+</script>
+
 </body>
 </html>
